@@ -42,18 +42,13 @@ To connect, copy the `instance_public_ip` address to use soon. Once you are in t
 
 ## Sources:
 
-https://cloud-images.ubuntu.com/locator/ec2/
-https://spacelift.io/blog/terraform-output
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
-https://canvas.oregonstate.edu/courses/1958308/assignments/9593748
+- Ubuntu: [Amazon EC2 AMI Locator](https://cloud-images.ubuntu.com/locator/ec2/)
+- Hashicorp: [Build infrastructure](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build)
+- Terraform: [EIP](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)
+- Terraform: [EIP Association](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip_association)
+- Canvas:  [Course Project Part 1](https://canvas.oregonstate.edu/courses/1958308/assignments/9593748)
 - Medium: [Start your Minecraft Server on Amazon Web Services (AWS) in 2023](https://medium.com/@cedric.lemercierlaos/start-your-minecraft-server-on-amazon-web-services-aws-d35f846a2d7c)
 - MultiMC Github: [Using the right Java](https://github.com/MultiMC/Launcher/wiki/Using-the-right-Java)
-
-
-
-Scripts to run: 
-ansible-playbook -i inventory/hosts playbook.yml
 
 
 
