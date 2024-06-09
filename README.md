@@ -32,11 +32,13 @@ The only environment variables that the user should configure is to set the AWS 
 1. Assuming the user has already done the AWS key pair generation commands seen above, created a working Terraform script. Make sure that Terraform is [installed first](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
 2. Make sure the user is in the working directory with the Terraform script and enter `terraform init` to initizlize the backend.
 3. Then enter `terraform apply` to deploy an EC2 instance on AWS. The `main.tf` file will create a server with the correct security groups to connect to Minecraft, as well as a configured elastic IP. The `outputs.tf` file will output the IP address in which we will take note of. Example: `instance_public_ip = "54.149.76.41"`
-4. Copy the `instance_public_ip` value and navigate to the `./inventory/hosts` file and replace the placeholder IP address with the new IP address created through the recent `terraform apply`
+4. Copy the `instance_public_ip` value and navigate to the `./inventory/hosts` file and replace/paste the placeholder IP address with the new IP address created through the recent `terraform apply`
 ![Alt text](./inventory.png)
+5. Now that the EC2 instance is active, we can run the Ansible playbook to configure the instance to open a Minecraft server: `ansible-playbook -i inventory/hosts playbook.yml`
     
 ## How to connect to the Minecraft server once it's running?
 
+To connect, copy the `instance_public_ip` address to use soon. Once you are in the Minecraft main menu, click on the **Mulitplayer** button and then click on **Direction Connection** and then paste the IP address when the screen prompts for a IP address. You can also check for an `nmap` request to see that the Minecraft server is open: `nmap -sV -Pn -p T:25565 <instance_public_ip>`
 
 ## Sources:
 
@@ -44,6 +46,7 @@ https://cloud-images.ubuntu.com/locator/ec2/
 https://spacelift.io/blog/terraform-output
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
+https://canvas.oregonstate.edu/courses/1958308/assignments/9593748
 - Medium: [Start your Minecraft Server on Amazon Web Services (AWS) in 2023](https://medium.com/@cedric.lemercierlaos/start-your-minecraft-server-on-amazon-web-services-aws-d35f846a2d7c)
 - MultiMC Github: [Using the right Java](https://github.com/MultiMC/Launcher/wiki/Using-the-right-Java)
 
