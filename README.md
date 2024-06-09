@@ -28,9 +28,9 @@ The only environment variables that the user should configure is to set the AWS 
 
 ![Alt text](./diagram.jpg)
 
-
-    
 ## List of commands to run, with explanations.
+1. Assuming the user has already done the AWS key pair generation commands seen above, created a working Terraform script. Make sure that Terraform is [installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+2. The first step is to provision an EC2 instance in which we would need to first enter `terraform init` to 
     
 ## How to connect to the Minecraft server once it's running?
 
