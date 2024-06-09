@@ -10,7 +10,7 @@ As seen in the 8.2 Infrastructure As Code lecture, the last slide shows that we 
 ## Requirements:
 - What will the user need to configure to run the pipeline and what tools should be installed?
 
-The user will need to configure their Terraform and Ansible scripts to run the pipeline. The tools required for are: Terraform v1.8.5 (for provisioning), Ansible v2.16.6 (for configuration), and the AWS CLI (for key pair creation). 
+The user will need to configure their Terraform and Ansible scripts to run the pipeline. The tools required for are: **Terraform v1.8.5** (for provisioning), **Ansible v2.16.6** (for configuration), and the **AWS CLI** (for key pair creation). 
 
 - Are there any credentials or CLI required?
 
