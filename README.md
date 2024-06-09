@@ -42,13 +42,15 @@ To connect, copy the `instance_public_ip` address to use soon. Once you are in t
 
 ## Sources:
 
-- Ubuntu: [Amazon EC2 AMI Locator](https://cloud-images.ubuntu.com/locator/ec2/)
-- Hashicorp: [Build infrastructure](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build)
-- Terraform: [EIP](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)
-- Terraform: [EIP Association](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip_association)
-- Canvas:  [Course Project Part 1](https://canvas.oregonstate.edu/courses/1958308/assignments/9593748)
-- Medium: [Start your Minecraft Server on Amazon Web Services (AWS) in 2023](https://medium.com/@cedric.lemercierlaos/start-your-minecraft-server-on-amazon-web-services-aws-d35f846a2d7c)
-- MultiMC Github: [Using the right Java](https://github.com/MultiMC/Launcher/wiki/Using-the-right-Java)
+- Ubuntu: [Amazon EC2 AMI Locator](https://cloud-images.ubuntu.com/locator/ec2/) (To find correct Ubuntu AMI)
+- Hashicorp: [Build infrastructure](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build) (To use in README.md)
+- Terraform: [EIP](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) (To use Elastic IP in Terraform script)
+- Terraform: [EIP Association](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip_association) (To use Elastic IP in terraform Script)
+- Canvas:  [Course Project Part 1](https://canvas.oregonstate.edu/courses/1958308/assignments/9593748) (To use nmap instructions)
+- Medium: [Start your Minecraft Server on Amazon Web Services (AWS) in 2023](https://medium.com/@cedric.lemercierlaos/start-your-minecraft-server-on-amazon-web-services-aws-d35f846a2d7c) (To use systemmd service file, also used in Project Part 1)
+- MultiMC Github: [Using the right Java](https://github.com/MultiMC/Launcher/wiki/Using-the-right-Java) (Used to identify what OpenJDK version to install in playbook)
+- Github: [Ansible Playbooks for AWS EC2 Demo](https://github.com/adulbrich/demo-ansible-playbook-ec2/tree/main) (Used file structure to create host file for Ansible)
+- ChatGPT (Used to help writing Ansible/Terraform scripts)
 
 
 
