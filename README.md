@@ -33,7 +33,7 @@ The only environment variables that the user should configure is to set the AWS 
 2. Make sure the user is in the working directory with the Terraform script and enter `terraform init` to initizlize the backend.
 3. Then enter `terraform apply` to deploy an EC2 instance on AWS. The `main.tf` file will create a server with the correct security groups to connect to Minecraft, as well as a configured elastic IP. The `outputs.tf` file will output the IP address in which we will take note of. Example: `instance_public_ip = "54.149.76.41"`
 4. Copy the `instance_public_ip` value and navigate to the `./inventory/hosts` file and replace the placeholder IP address with the new IP address created through the recent `terraform apply`
-![Alt text](./inventory.jpg)
+![Alt text](./inventory.png)
     
 ## How to connect to the Minecraft server once it's running?
 
