@@ -1,0 +1,70 @@
+---
+- hosts: minecraft
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install OpenJDK 21
+      apt:
+        name: openjdk-21-jdk
+        state: present
+
+    - name: Create a directory for Minecraft server
+      file:
+        path: /opt/minecraft
+        state: directory
+        mode: '0755'
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Download Minecraft server jar
+      get_url:
+        url: https://piston-data.mojang.com/v1/objects/145ff0858209bcfc164859ba735d4199aafa1eea/server.jar
+        dest: /opt/minecraft/server.jar
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Accept the EULA
+      copy:
+        content: "eula=true\n"
+        dest: /opt/minecraft/eula.txt
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Create a systemd service file for Minecraft
+      copy:
+        dest: /etc/systemd/system/minecraft.service
+        content: |
+          [Unit]
+          Description=AutoMC Service
+
+          [Service]
+          User=ubuntu
+          WorkingDirectory=/opt/minecraft
+          #path to the executable bash script which executes the jar file
+          ExecStart=/usr/bin/java -Xmx1024M -Xms1024M -jar server.jar nogui
+          ExecStop=/bin/kill -s SIGINT $MAINPID
+          SuccessExitStatus=143
+          TimeoutStopSec=30
+          Restart=on-failure
+          RestartSec=5
+          
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Set ownership of Minecraft server directory
+      file:
+        path: /opt/minecraft
+        state: directory
+        recurse: yes
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Start and enable Minecraft server
+      systemd:
+        name: minecraft
+        enabled: yes
+        state: started
