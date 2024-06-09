@@ -9,9 +9,11 @@ As seen in the 8.2 Infrastructure As Code lecture, the last slide shows that we 
 
 ## Requirements:
 - What will the user need to configure to run the pipeline and what tools should be installed?
+
 The user will need to configure their Terraform and Ansible scripts to run the pipeline. The tools required for are: Terraform (for provisioning), Ansible (for configuration), and the AWS CLI (for key pair creation). 
 
 - Are there any credentials or CLI required?
+
 Yes, the first is the AWS CLI credential in order for my local terminal to connect to AWS services, especially when using Terraform. This will be accessed through the Learner Lab module to get the credentials. The next credential is used for SSH key pair creation. In order for me to create an SSH key pair through AWS CLI, I would enter this command (ChatGPT): `aws ec2 create-key-pair --key-name mc_kp --query 'KeyMaterial' --output text --region us-west-2 > ~/Code/cs312/Project-Part-2/mc_kp.pem`
 
 - Should the user set environment variables or configure anything?
