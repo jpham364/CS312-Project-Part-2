@@ -29,8 +29,11 @@ The only environment variables that the user should configure is to set the AWS 
 ![Alt text](./diagram.jpg)
 
 ## List of commands to run, with explanations.
-1. Assuming the user has already done the AWS key pair generation commands seen above, created a working Terraform script. Make sure that Terraform is [installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
-2. The first step is to provision an EC2 instance in which we would need to first enter `terraform init` to 
+1. Assuming the user has already done the AWS key pair generation commands seen above, created a working Terraform script. Make sure that Terraform is [installed first](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+2. Make sure the user is in the working directory with the Terraform script and enter `terraform init` to initizlize the backend.
+3. Then enter `terraform apply` to deploy an EC2 instance on AWS. The `main.tf` file will create a server with the correct security groups to connect to Minecraft, as well as a configured elastic IP. The `outputs.tf` file will output the IP address in which we will take note of. Example: `instance_public_ip = "54.149.76.41"`
+4. Copy the `instance_public_ip` value and navigate to the `./inventory/hosts` file and replace the placeholder IP address with the new IP address created through the recent `terraform apply`
+![Alt text](./inventory.jpg)
     
 ## How to connect to the Minecraft server once it's running?
 
@@ -40,15 +43,13 @@ The only environment variables that the user should configure is to set the AWS 
 https://cloud-images.ubuntu.com/locator/ec2/
 https://spacelift.io/blog/terraform-output
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
+- Medium: [Start your Minecraft Server on Amazon Web Services (AWS) in 2023](https://medium.com/@cedric.lemercierlaos/start-your-minecraft-server-on-amazon-web-services-aws-d35f846a2d7c)
+- MultiMC Github: [Using the right Java](https://github.com/MultiMC/Launcher/wiki/Using-the-right-Java)
 
 
 
 Scripts to run: 
-
-aws ec2 create-key-pair --key-name mc_kp --query 'KeyMaterial' --output text --region us-west-2 > ~/Code/cs312/Project-Part-2/mc_kp.pem
-
-chmod 400 ~/Code/cs312/Project-Part-2/mc_kp.pem
-
 ansible-playbook -i inventory/hosts playbook.yml
 
 
