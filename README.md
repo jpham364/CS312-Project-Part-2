@@ -22,6 +22,8 @@ The only environment variables that the user should configure is to set the AWS 
 
 ## Diagram of the major steps in the pipeline. 
 
+![Alt text](./diagram.jpg)
+
 
     
 ## List of commands to run, with explanations.
