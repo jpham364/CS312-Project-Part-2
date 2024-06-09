@@ -18,6 +18,8 @@ Yes, the first is the AWS CLI credential in order for my local terminal to conne
 
 The command above is a AWS CLI command to create a key pair, which will be named `mc_kp`. The command will also grab the private key and will associate the key pair to the given region (us-west-2). The private key .pem file will be stored to my repository to be used to connect to SSH using Ansible. (key not on GitHub for security) 
 
+In addition to creating the key pair, make sure to change the permissions of the key file to read only: `chmod 400 ~/Code/cs312/Project-Part-2/mc_kp.pem`
+
 - Should the user set environment variables or configure anything?
 
 The only environment variables that the user should configure is to set the AWS CLI credentials that was copied in the Learner Lab module to `~/.aws/credentials`. (Note: Every time you start a new lab session, the credentials change)
