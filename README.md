@@ -16,6 +16,8 @@ The user will need to configure their Terraform and Ansible scripts to run the p
 
 Yes, the first is the AWS CLI credential in order for my local terminal to connect to AWS services, especially when using Terraform. This will be accessed through the Learner Lab module to get the credentials. The next credential is used for SSH key pair creation. In order for me to create an SSH key pair through AWS CLI, I would enter this command (ChatGPT): `aws ec2 create-key-pair --key-name mc_kp --query 'KeyMaterial' --output text --region us-west-2 > ~/Code/cs312/Project-Part-2/mc_kp.pem`
 
+The command above is a AWS CLI command to create a key pair, which will be named `mc_kp`. The command will also grab the private key and will associate the key pair to the given region (us-west-2). The private key .pem file will be stored to my repository to be used to connect to SSH using Ansible. (key not on GitHub for security) 
+
 - Should the user set environment variables or configure anything?
 
 The only environment variables that the user should configure is to set the AWS CLI credentials that was copied in the Learner Lab module to `~/.aws/credentials`. (Note: Every time you start a new lab session, the credentials change)
